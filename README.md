@@ -25,5 +25,5 @@ class Example {
 
 **Name** | **Required?** | **Values** | **Default Value** | **Description**
 ---- | --------- | ------ | ------------- | -----------
-`metric` | `false` | `'s' | 'ms' | 'ns'` | `'ms'` | Metric to be used when logging function runtime
+`metric` | `false` | `['s', 'ms', 'ns']` | `'ms'` | Metric to be used when logging function runtime
 `precision` | `false` | `number, n > 1` | `undefined` | Number of digits after comma. Passing `undefined` will print an abruptly long string.
