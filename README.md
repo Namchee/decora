@@ -27,3 +27,25 @@ class Example {
 ---- | --------- | ------ | ------------- | -----------
 `metric` | `false` | `['s', 'ms', 'ns']` | `'ms'` | Metric to be used when logging function runtime
 `precision` | `false` | `number, n > 1` | `undefined` | Number of digits after comma. Passing `undefined` will print an abruptly long string.
+
+## `@timeout`
+
+**Decorator Type**: Method decorator
+
+Limits a function execution time to a certain time limit. Will throw an error if timeout value exceeded.
+
+```ts
+class Example {
+  @benchmark(1000)
+  timeoutMe() {
+    setTimeoutPromise(5000); // will throw an error
+  }
+}
+```
+
+### Parameters
+
+**Name** | **Required?** | **Values** | **Default Value** | **Description**
+---- | --------- | ------ | ------------- | -----------
+`time` | `true` | `number` | `-` | Time limit for the function
+`metric` | `false` | `['s', 'ms', 'ns']` | `'ms'` | Metric to be used when logging function runtime

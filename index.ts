@@ -1,4 +1,8 @@
 import { performance } from 'perf_hooks';
+import { promisify } from 'util';
+
+const setTimeoutPromise = promisify(setTimeout);
+const timeoutSymbol = Symbol('timeout');
 
 /**
  * Apply simple benchmarking to a method,
@@ -20,7 +24,7 @@ export function benchmark(
   ): void {
     if (!(descriptor.value instanceof Function)) {
       throw new Error(
-        '`benchmark` decorator can only be applied to functions',
+        '@benchmark decorator can only be applied to functions',
       );
     }
 
@@ -46,5 +50,53 @@ export function benchmark(
 
       return result;
     };
+  }
+}
+
+/**
+ * Limits function execution to a specific time limit, otherwise
+ * it will throw an `Error`
+ *
+ * @param {number} - time limit, in the supplied metric
+ * @param {'s' | 'ms' | 'ns'} - time metric to be used. Defaults to 'ms'
+ */
+export function timeout(
+  time: number,
+  metric: 's' | 'ms' | 'ns' = 'ms',
+): Function {
+  return function(
+    target: any,
+    keyName: string,
+    descriptor: PropertyDescriptor,
+  ) {
+    if (!(descriptor.value instanceof Function)) {
+      throw new Error(
+        '@timeout decorator can only be applied to functions'
+      );
+    }
+
+    const fn: Function = descriptor.value;
+      
+    if (metric !== 'ms') {
+      time = metric === 's' ?
+        time / 1000 :
+        time * 1000;
+    }
+
+    descriptor.value = async function(...args: any[]) {
+      const timeoutFn = setTimeoutPromise(time, timeoutSymbol);
+      const result = await Promise.race([
+        fn.apply(this, args),
+        timeoutFn,
+      ]);
+
+      if (typeof result === 'symbol' && result === timeoutSymbol) {
+        throw new Error(
+          `Function ${keyName} from class ${target.constructor.name} exceeds time limit of ${time} ms`,
+        )
+      }
+
+      return result;
+    }
   }
 }
