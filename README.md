@@ -12,6 +12,8 @@ Will be updated indefinitely.
 
 Add benchmarking functionality to a method from a class. Benchmark result will be written to `console`.
 
+> Will transform the decorated function into an asynchronous function.
+
 ```ts
 class Example {
   @benchmark()
@@ -33,6 +35,8 @@ class Example {
 **Decorator Type**: Method decorator
 
 Limits a function execution time to a certain time limit. Will throw an error if timeout value exceeded.
+
+> Will transform the decorated function into an asynchronous function.
 
 ```ts
 class Example {
