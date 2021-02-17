@@ -1,3 +1,4 @@
+import { Console } from 'console';
 import { performance } from 'perf_hooks';
 import { promisify } from 'util';
 
@@ -16,6 +17,7 @@ const timeoutSymbol = Symbol('timeout');
 export function benchmark(
   metric: 's' | 'ms' | 'ns' = 'ms',
   precision?: number,
+  stream: NodeJS.WritableStream = process.stdout,
 ): Function {
   return function(
     target: Object,
@@ -27,6 +29,8 @@ export function benchmark(
         '@benchmark decorator can only be applied to functions',
       );
     }
+
+    const logger = new Console({ stdout: stream });
 
     const fn: Function = descriptor.value;
 
@@ -44,7 +48,7 @@ export function benchmark(
           diff * 1000;
       }
 
-      console.log(
+      logger.info(
         `Function ${keyName} from class ${target.constructor.name} was executed in ${diff.toFixed(precision)} ${metric}`,
       );
 
