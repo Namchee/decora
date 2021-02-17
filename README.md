@@ -1,4 +1,4 @@
-# Decorator Ku
+# Decora
 
 Useful ECMAScript decorator for personal purposes.
 
