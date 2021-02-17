@@ -1,3 +1,20 @@
+# v1.0.2 (Wed Feb 17 2021)
+
+#### 🐛 Bug Fix
+
+- feat: Add output stream options to @benchmark [#1](https://github.com/Namchee/decora/pull/1) ([@Namchee](https://github.com/Namchee))
+
+#### ⚠️ Pushed to `master`
+
+- ci skip ([@Namchee](https://github.com/Namchee))
+- docs: Inform about asynchronous transformation. ci skip ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.1 (Thu Feb 04 2021)
 
 #### ⚠️ Pushed to `master`
