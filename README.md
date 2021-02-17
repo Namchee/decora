@@ -1,4 +1,4 @@
-# Decorator Ku
+# Decora
 
 Useful ECMAScript decorator for personal purposes.
 
@@ -29,6 +29,7 @@ class Example {
 ---- | --------- | ------ | ------------- | -----------
 `metric` | `false` | `['s', 'ms', 'ns']` | `'ms'` | Metric to be used when logging function runtime
 `precision` | `false` | `number, n > 1` | `undefined` | Number of digits after comma. Passing `undefined` will print an abruptly long string.
+`stream` | `true` | `NodeJS.WritableStream` | `process.stdout` | Destination for the log to be written to. [Detailed Explanation](https://nodejs.org/api/stream.html#stream_writable_streams)
 
 ## `@timeout`
 
