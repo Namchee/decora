@@ -1,8 +1,6 @@
 import { Console } from 'console';
 import { performance } from 'perf_hooks';
-import { promisify } from 'util';
 
-const setTimeoutPromise = promisify(setTimeout);
 const timeoutSymbol = Symbol('timeout');
 
 /**
@@ -88,7 +86,10 @@ export function timeout(
     }
 
     descriptor.value = async function(...args: any[]) {
-      const timeoutFn = setTimeoutPromise(time, timeoutSymbol);
+      const timeoutFn = Promise.resolve(
+        setTimeout(() => timeoutSymbol, time),
+      );
+
       const result = await Promise.race([
         fn.apply(this, args),
         timeoutFn,
