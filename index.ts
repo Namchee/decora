@@ -22,7 +22,7 @@ export function benchmark(
     keyName: string,
     descriptor: PropertyDescriptor,
   ): void {
-    if (!(descriptor.value instanceof Function)) {
+    if (!descriptor || !(descriptor.value instanceof Function)) {
       throw new Error(
         '@benchmark decorator can only be applied to functions',
       );
@@ -71,9 +71,9 @@ export function timeout(
     keyName: string,
     descriptor: PropertyDescriptor,
   ) {
-    if (!(descriptor.value instanceof Function)) {
+    if (!descriptor || !(descriptor.value instanceof Function)) {
       throw new Error(
-        '@timeout decorator can only be applied to functions'
+        '@timeout decorator can only be applied to functions',
       );
     }
 
