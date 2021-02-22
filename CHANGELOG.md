@@ -1,3 +1,15 @@
+# v1.0.3 (Mon Feb 22 2021)
+
+#### 🐛 Bug Fix
+
+- tests: Add tests [#2](https://github.com/Namchee/decora/pull/2) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.2 (Wed Feb 17 2021)
 
 #### 🐛 Bug Fix
