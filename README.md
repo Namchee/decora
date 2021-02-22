@@ -1,10 +1,24 @@
 # Decora
 
+[![NPM Badge](https://img.shields.io/npm/v/@namchee/decora)](https://www.npmjs.com/package/@namchee/decora)
+
 Useful ECMAScript decorator for personal purposes.
 
 Although it's written in [TypeScript](https://www.typescriptlang.org/), these decorators should be compatible with normal JS files as long as it supports ES7.
 
 Will be updated indefinitely.
+
+## Installation
+
+`npm install @namchee/decora`
+
+### TypeScript
+
+Remember to toggle the `experimentalDecorators` option to `true` in your `tsconfig.json`
+
+### JavaScript
+
+Install [`@babel/plugin-proposal-decorators`](https://www.npmjs.com/package/@babel/plugin-proposal-decorators) and add it to your [Babel configuration](https://babeljs.io/docs/en/configuration)
 
 ## `@benchmark`
 
