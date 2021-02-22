@@ -47,12 +47,13 @@ export function benchmark(
       }
 
       logger.info(
+        /* eslint-disable-next-line */
         `Function ${keyName} from class ${target.constructor.name} was executed in ${diff.toFixed(precision)} ${metric}`,
       );
 
       return result;
     };
-  }
+  };
 }
 
 /**
@@ -78,7 +79,7 @@ export function timeout(
     }
 
     const fn: Function = descriptor.value;
-      
+
     if (metric !== 'ms') {
       time = metric === 's' ?
         time / 1000 :
@@ -97,11 +98,12 @@ export function timeout(
 
       if (typeof result === 'symbol' && result === timeoutSymbol) {
         throw new Error(
+          /* eslint-disable-next-line */
           `Function ${keyName} from class ${target.constructor.name} exceeds time limit of ${time} ms`,
-        )
+        );
       }
 
       return result;
-    }
-  }
+    };
+  };
 }

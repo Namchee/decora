@@ -16,21 +16,26 @@ describe('@timeout', () => {
     expect(result).toBe(0);
   });
 
-  it('should throw an error as the decorator is not applied to a function', async () => {
-    try {
-      class Test {
-        @timeout(5000)
-        test: number = 5000;
+  it(
+    'should throw an error as the decorator is not applied to a function',
+    async () => {
+      try {
+        class Test {
+          @timeout(5000)
+          test: number = 5000;
+        }
+
+        new Test();
+
+        throw new Error(
+          'Test should fail as the decorator is not applied to a function',
+        );
+      } catch (err) {
+        expect((err as Error).message)
+          .toBe('@timeout decorator can only be applied to functions');
       }
+    });
 
-      new Test();
-
-      throw new Error('Test should fail as the decorator is not applied to a function');
-    } catch (err) {
-      expect((err as Error).message)
-        .toBe('@timeout decorator can only be applied to functions');
-    }
-  });
   it('should throw an error as the function timeouts', async () => {
     class Test {
       @timeout(1999)
