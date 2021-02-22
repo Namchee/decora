@@ -17,7 +17,7 @@ describe('@timeout', () => {
   });
 
   it(
-    'should throw an error as the decorator is not applied to a function',
+    'should throw an error when the decorator is not applied to a function',
     async () => {
       try {
         class Test {
@@ -36,7 +36,7 @@ describe('@timeout', () => {
       }
     });
 
-  it('should throw an error as the function timeouts', async () => {
+  it('should throw an error when the function timeouts', async () => {
     class Test {
       @timeout(1999)
       test() {
