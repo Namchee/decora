@@ -1,4 +1,4 @@
-import { timeout } from './../index';
+import { timeout } from './../src/timeout';
 
 jest.useFakeTimers();
 
