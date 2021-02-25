@@ -36,6 +36,14 @@ export function benchmark(
     } else if (isBrowser) { // browser
       logger = window.console;
       performance = window.performance;
+
+      // if stream is somehow defined, ignore it
+      if (stream) {
+        logger.warn(
+          /* eslint-disable-next-line */
+          'The `stream` option only available on Node.JS environment. This option will be ignored.',
+        );
+      }
     } else { // do nothing, for now
       return;
     }
