@@ -1,3 +1,15 @@
+# v1.0.4 (Thu Feb 25 2021)
+
+#### 🐛 Bug Fix
+
+- feat: Transform @benchmark decorator into universal code [#3](https://github.com/Namchee/decora/pull/3) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.3 (Mon Feb 22 2021)
 
 #### 🐛 Bug Fix
