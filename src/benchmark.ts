@@ -1,5 +1,4 @@
-import { Console } from 'console';
-import { performance } from 'perf_hooks';
+import { isNode, isBrowser } from './utils';
 
 /**
  * Apply simple benchmarking to a method,
@@ -26,7 +25,28 @@ export function benchmark(
       );
     }
 
-    const logger = new Console({ stdout: stream });
+    let logger: Console;
+    let performance: Performance;
+
+    if (isNode) { // node environment
+      const Console = require('console').Console;
+
+      logger = new Console({ stdout: stream });
+      performance = require('perf_hooks').performance;
+    } else if (isBrowser) { // browser
+      logger = window.console;
+      performance = window.performance;
+
+      // if stream is somehow defined, ignore it
+      if (stream) {
+        logger.warn(
+          /* eslint-disable-next-line */
+          'The `stream` option only available on Node.JS environment. This option will be ignored.',
+        );
+      }
+    } else { // do nothing, for now
+      return;
+    }
 
     const fn: Function = descriptor.value;
 
