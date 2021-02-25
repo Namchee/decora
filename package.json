@@ -1,6 +1,6 @@
 {
   "name": "@namchee/decora",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Useful ECMAScript-compliant decorators to enhance JS (specifically, TypeScript) development experience",
   "main": "index.js",
   "scripts": {
