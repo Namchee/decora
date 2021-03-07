@@ -1,3 +1,15 @@
+# v1.0.5 (Sun Mar 07 2021)
+
+#### 🐛 Bug Fix
+
+- build: Add proper module builds [#4](https://github.com/Namchee/decora/pull/4) ([@Namchee](https://github.com/Namchee))
+
+#### Authors: 1
+
+- Cristopher ([@Namchee](https://github.com/Namchee))
+
+---
+
 # v1.0.4 (Thu Feb 25 2021)
 
 #### 🐛 Bug Fix
