@@ -2,7 +2,7 @@
 
 [![NPM Badge](https://img.shields.io/npm/v/@namchee/decora)](https://www.npmjs.com/package/@namchee/decora)
 
-Useful ECMAScript decorator for personal purposes.
+Useful ECMAScript decorator for personal purposes. Compatible with both browser and NodeJS environment.
 
 Although it's written in [TypeScript](https://www.typescriptlang.org/), these decorators should be compatible with normal JS files as long as it supports ES7.
 
