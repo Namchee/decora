@@ -1,11 +1,10 @@
 {
   "name": "@namchee/decora",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Useful ECMAScript-compliant decorators to enhance JS (specifically, TypeScript) development experience",
   "main": "build/cjs/index.js",
   "module": "build/esm/index.js",
   "browser": "build/umd/index.js",
-
   "scripts": {
     "build": "rm -rf build && npm run build:cjs & npm run build:esm & npm run build:umd",
     "build:cjs": "tsc --project tsconfig.build.json --module commonjs --outDir build/cjs",
