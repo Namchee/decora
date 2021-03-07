@@ -106,4 +106,4 @@ dist
 src/**/*.js
 __tests__/**/*.js
 
-index.js
+build
