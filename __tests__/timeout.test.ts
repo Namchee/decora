@@ -32,7 +32,7 @@ describe('@timeout', () => {
         );
       } catch (err) {
         expect((err as Error).message)
-          .toBe('@timeout decorator can only be applied to functions');
+          .toBe('@timeout decorator can only be applied to class methods');
       }
     });
 

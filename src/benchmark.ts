@@ -21,7 +21,7 @@ export function benchmark(
   ): void {
     if (!descriptor || !(descriptor.value instanceof Function)) {
       throw new Error(
-        '@benchmark decorator can only be applied to functions',
+        '@benchmark decorator can only be applied to class methods',
       );
     }
 

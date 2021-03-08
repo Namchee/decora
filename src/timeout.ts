@@ -18,7 +18,7 @@ export function timeout(
   ) {
     if (!descriptor || !(descriptor.value instanceof Function)) {
       throw new Error(
-        '@timeout decorator can only be applied to functions',
+        '@timeout decorator can only be applied to class methods',
       );
     }
 
