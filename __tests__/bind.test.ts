@@ -32,4 +32,23 @@ describe('@bind', function() {
 
     expect(returnValue).toBe(1);
   });
+
+  it('should binds to custom context when parameter is provided', function() {
+    const context = {
+      value: 2,
+    };
+
+    class Test {
+      value = 1;
+
+      @bind(context)
+      test() {
+        return this.value;
+      }
+    }
+
+    const value = new Test().test();
+
+    expect(value).toBe(2);
+  });
 });
