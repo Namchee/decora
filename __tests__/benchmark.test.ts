@@ -41,11 +41,11 @@ describe('@benchmark', () => {
         new Test();
 
         throw new Error(
-          'Test should fail as the decorator is not applied to a function',
+          'Test should fail as the decorator is not applied to a class method',
         );
       } catch (err) {
         expect((err as Error).message)
-          .toBe('@benchmark decorator can only be applied to functions');
+          .toBe('@benchmark decorator can only be applied to class methods');
       }
     },
   );
