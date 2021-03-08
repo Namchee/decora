@@ -2,9 +2,9 @@
 
 [![NPM Badge](https://img.shields.io/npm/v/@namchee/decora)](https://www.npmjs.com/package/@namchee/decora)
 
-Useful ECMAScript decorator for personal purposes. Compatible with both browser and NodeJS environment.
+Useful ECMAScript decorator for any development needs. Compatible with both browser and NodeJS environment.
 
-Although it's written in [TypeScript](https://www.typescriptlang.org/), these decorators should be compatible with normal JS files as long as it supports ES7.
+Although it's written in [TypeScript](https://www.typescriptlang.org/), these decorators should be compatible with normal JS files as long as the environment support ES7 standard.
 
 Will be updated indefinitely.
 
@@ -15,6 +15,13 @@ Will be updated indefinitely.
 ### TypeScript
 
 Remember to toggle the `experimentalDecorators` option to `true` in your `tsconfig.json`
+
+```json
+{
+  // ...
+  "experimentalDecorators": true
+}
+```
 
 ### JavaScript
 
@@ -67,3 +74,28 @@ class Example {
 ---- | --------- | ------ | ------------- | -----------
 `time` | `true` | `number` | `-` | Time limit for the function
 `metric` | `false` | `['s', 'ms', 'ns']` | `'ms'` | Metric to be used when logging function runtime
+
+## `@bind`
+
+**Decorator Type**: Method decorator
+
+Binds a class method to a `this` context.
+
+```ts
+class Example {
+  value = 5;
+
+  @bind()
+  bindedMethod() {
+    return this.value;
+  }
+}
+
+const value = new Example().bindedMethod(); // will return `5` instead of `undefined`
+```
+
+### Parameters
+
+**Name** | **Required?** | **Values** | **Default Value** | **Description**
+---- | --------- | ------ | ------------- | -----------
+`context` | `false` | `any` | `this` | Method's execution context
